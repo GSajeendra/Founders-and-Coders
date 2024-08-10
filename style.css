@@ -7,52 +7,107 @@ body {
 }
 
 .container {
-    display: flex;
+    padding: 16px;
+    background-color: #FFFFFF;
     min-height: 100vh;
 }
 
 .sidebar {
-    background-color: #D0E2F2;
-    padding: 20px;
-    width: 200px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a:hover {
-    color: #FF6F61;
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-    background-color: #FFFFFF;
-}
-
-h1 {
-    color: #FF6F61;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
+    display: none;
     background-color: #D0E2F2;
     position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-footer a {
-    color: #FF6F61;
-    text-decoration: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-footer a:hover {
+.sidebar-bar-block {
+    display: block;
+}
+
+.sidebar-bar-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
     color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #F2D7D9;
+}
+
+.sidebar-bar-item:hover {
+    background-color: #FF6F61;
+    color: white;
+}
+
+.sidebar-border-right {
+    border-right: 2px solid #F2D7D9;
+}
+
+.sidebar-large {
+    font-size: 18px;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.button img {
+    width: 30px;
+    height: 30px;
+}
+
+.header {
+    background-color: #FF6F61;
+    color: white;
+    padding: 20px;
+    position: relative;
+    z-index: 2; /* To ensure the header is above the sidebar */
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header p {
+    margin-top: 10px;
+}
+
+/* Sidebar open state */
+.sidebar-open .sidebar {
+    display: block;
+}
+
+.sidebar-open .container {
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+}
+
+/* Media Query to hide the sidebar on smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: width 0.3s;
+    }
+
+    .sidebar.expanded {
+        width: 250px;
+        padding: 20px;
+    }
+
+    .container {
+        margin-left: 0;
+    }
 }

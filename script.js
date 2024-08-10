@@ -1,10 +1,7 @@
-function  showSection(sectionId) {
-    // Hide all sectoins
-    document.querySelectorAll('main.content section').forEach(function(section) {
-       section.style.display = 'none';
-    });
+function openSidebar() {
+    document.body.classList.add('sidebar-open');
+}
 
-    // Show the selected section
-    document.getElementById(sectionId).style.display = 'black';
-    // CHECKING CHANGE
+function closeSidebar() {
+    document.body.classList.remove('sidebar-open');
 }
